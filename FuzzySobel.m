@@ -5,7 +5,7 @@
 % Science Conference (NRSC 2000), C32-1-9,
 % Minufi a, Egypt, 2000.
 %
-% coded in MAtlab by kambiz.rahbar@gmail.com - Jan 2019
+% coded in Matlab by kambiz.rahbar@gmail.com - Jan 2019
 %
 
 clc
