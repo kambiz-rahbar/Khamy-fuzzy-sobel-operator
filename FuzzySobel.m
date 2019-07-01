@@ -100,7 +100,7 @@ for i = 1:255
 end
 
 % estimate the high_threshold (HT)
-for i = 255:-1:0
+for i = 255:-1:1
     if diff_hist(i) >= peak0_02
         high_threshold = i;
         break;
