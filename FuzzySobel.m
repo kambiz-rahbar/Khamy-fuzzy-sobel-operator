@@ -10,7 +10,7 @@
 
 clc
 clear
-close all
+%close all
 
 % load a image
 img = imread('test1.jpg');
@@ -125,9 +125,9 @@ mu_EFR(G>=high_threshold) = 1;
 R = zeros(size(img));
 for x=1:size(G,1)
     for y=1:size(G,2)
-        if G (x, y) >= high_threshold
+        if G(x, y) >= high_threshold
             R(x,y) = 255;
-        elseif G (x, y) <= low_threshold
+        elseif G(x, y) <= low_threshold
             R(x,y) = 0;
         else
             R(x,y) = G(x,y)*max(mu_SFR(x,y), mu_EFR(x,y));
@@ -135,7 +135,16 @@ for x=1:size(G,1)
     end
 end
 
+% normalized in [0:100]
+R = R / max(R(:)) * 10;
+
+% set a threshold and apply it
+% threshold find by try and error
+fuzzy_sobel_threshold = 10;
+fuzzy_sobel_edges = R < fuzzy_sobel_threshold;
+fuzzy_sobel_edges = 1-fuzzy_sobel_edges;
+
 % show the results from Khamy fuzzy sobel operator
 subplot(2,2,4);
-imshow(uint8(R));
+imshow(uint8(255*fuzzy_sobel_edges));
 title('edge using fuzzy sobel operator');
