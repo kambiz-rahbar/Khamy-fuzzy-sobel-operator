@@ -5,7 +5,7 @@
 % Science Conference (NRSC 2000), C32-1-9,
 % Minufi a, Egypt, 2000.
 %
-% coded in Matlab by kambiz.rahbar@gmail.com - Jan 2019
+% coded in Matlab by kambiz.rahbar@gmail.com - Jan 2019 - 2021
 %
 
 clc
@@ -136,7 +136,7 @@ for x=1:size(G,1)
 end
 
 % normalized in [0:100]
-R = R / max(R(:)) * 10;
+R = R / max(R(:)) * 100;
 
 % set a threshold and apply it
 % threshold find by try and error
